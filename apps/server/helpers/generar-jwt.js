@@ -7,7 +7,7 @@ const generarJWT = ( uid = '' ) => {
 
         const payload = { uid };
 
-        jwt.sign( payload, process.env.SECRETORPRIVATEKEY, {
+        jwt.sign( payload, process.env.SECRETPRIVATEKEY, {
             expiresIn: '4h'
         }, ( err, token ) => {
 
@@ -30,12 +30,12 @@ const comprobarJWT = async( token = '') => {
             return null;
         }
 
-        const { uid } = jwt.verify( token, process.env.SECRETORPRIVATEKEY );
-        const usuario = await Usuario.findById( uid );
+        const { uid } = jwt.verify( token, process.env.SECRETPRIVATEKEY );
+        const user = await User.findById( uid );
 
-        if ( usuario ) {
-            if ( usuario.estado ) {
-                return usuario;
+        if ( user ) {
+            if ( user.estado ) {
+                return user;
             } else {
                 return null;
             }
