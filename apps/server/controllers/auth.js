@@ -11,22 +11,22 @@ const login = async(req, res = response) => {
 
     try {
         // Verificar si el email existe
-        const usuario = await User.findOne({ email });
-        if ( !usuario ) {
+        const user = await User.findOne({ email });
+        if ( !user ) {
             return res.status(400).json({
                 msg: 'Usuario / Password no son correctos - correo'
             });
         }
 
         // SI el usuario está activo
-        if ( !usuario.estado ) {
+        if ( !user.state ) {
             return res.status(400).json({
                 msg: 'Usuario / Password no son correctos - estado: false'
             });
         }
 
         // Verificar la contraseña
-        const validPassword = bcryptjs.compareSync( password, usuario.password );
+        const validPassword = bcryptjs.compareSync( password, user.password );
         if ( !validPassword ) {
             return res.status(400).json({
                 msg: 'Usuario / Password no son correctos - password'
@@ -34,10 +34,10 @@ const login = async(req, res = response) => {
         }
 
         // Generar el JWT
-        const token = await generarJWT( usuario.id );
+        const token = await generarJWT( user.id );
 
         res.json({
-            usuario,
+            user,
             token
         })
 
