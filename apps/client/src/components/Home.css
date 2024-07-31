@@ -1,0 +1,35 @@
+
+#home {
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: monospace;
+    font-size: 24px;
+}
+
+.home__buttons {
+    padding: 10px;
+    display: flex;
+}
+
+.home__title {
+    text-transform: uppercase;
+    font-size: 3em;
+    letter-spacing: 2px;
+}
+
+button {
+    margin: 10px;
+    padding: 4px 14px;
+    border: none;
+    border-radius: 2px;
+    font-family: monospace;
+}
+
+button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
