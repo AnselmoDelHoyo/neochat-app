@@ -1,9 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* ------ Variables ------ */
+
+:root {
+    --c-main: #b1b6ba;
+    --c-black: rgba(0, 0, 0, 0.875);
+
+    --b-radius: 6px;
+
+    --shadow-ex:   -6px -6px 10px rgb(200, 200, 200,1),
+                    6px 6px 10px rgba(0, 0, 0, 0.2);
+    --shadow-in:    inset -6px -6px 10px rgba(200, 200, 200,0.5),
+                    inset 6px 6px 10px rgba(0,0,0,0.1);
 }
 
 body {
-    background-color: rgb(124, 124, 124);
+    background-color: var(--c-main);
+}
+
+/* ------ Elements ------ */
+
+button {
+    user-select: none;
+    border: none;
+    border-radius: var(--b-radius);
+    background: var(--c-main);
+    box-shadow: var(--shadow-ex)
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: var(--shadow-in);
 }
