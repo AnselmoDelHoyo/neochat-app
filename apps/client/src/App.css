@@ -24,6 +24,10 @@ body {
 
 /* ------ Elements ------ */
 
+section {
+    font-family: "Montserrat", sans-serif;
+}
+
 button {
     user-select: none;
     border: none;
@@ -35,4 +39,9 @@ button {
 button:hover {
     cursor: pointer;
     box-shadow: var(--shadow-in);
+}
+
+input {
+    padding: 12px 10px;
+    border: none;
 }
