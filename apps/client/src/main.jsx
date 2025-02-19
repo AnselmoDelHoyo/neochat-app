@@ -6,8 +6,13 @@ import Chat from "./components/Chat.jsx";
 import "./styles/normalize.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NotFound from "./pages/NotFound.jsx";
 
 const router = createBrowserRouter([
+  {
+    path: "*",
+    element: <NotFound />,
+  },
   {
     path: "/",
     element: <App />,
