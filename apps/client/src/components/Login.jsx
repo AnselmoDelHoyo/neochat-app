@@ -1,12 +1,13 @@
-import { useRef } from "react";
-import "../styles/Login.css";
 import { useNavigate } from "react-router";
+import "../styles/Login.css";
+import { useRef } from "react";
 
 export default function Login() {
 
     const userEmail = useRef();
     const userPassword = useRef();
-    const navigate = useNavigate();
+
+    let navigate = useNavigate();
 
     const loginUser = async (e) => {
         e.preventDefault();
@@ -27,18 +28,16 @@ export default function Login() {
             }
         );
 
-        let result = await response.json();
-
-        console.log(result);
+        let { token } = await response.json();
         
-        if (result.token) {
+        if (token) {
+            localStorage.setItem("token", token);
             navigate("/chat");
         }
     }
 
     return (
         <main id="login">
-            
             <form className="login-form" onSubmit={loginUser}>
                 <div className="login-form__title">
                     <h1 className="title-form">Login</h1>

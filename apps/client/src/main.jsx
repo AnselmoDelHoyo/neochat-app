@@ -18,11 +18,11 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "login",
+    path: "/login",
     element: <Login />,
   },
   {
-    path: "chat",
+    path: "/chat",
     element: <Chat />,
   }
 ]);

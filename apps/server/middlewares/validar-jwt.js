@@ -15,7 +15,7 @@ const validarJWT = async( req = request, res = response, next ) => {
 
     try {
         
-        const { uid } = jwt.verify( token, process.env.SECRETORPRIVATEKEY );
+        const { uid } = jwt.verify( token, process.env.SECRETPRIVATEKEY );
 
         // leer el usuario que corresponde al uid
         const user = await User.findById( uid );
@@ -27,18 +27,16 @@ const validarJWT = async( req = request, res = response, next ) => {
         }
 
         // Verificar si el uid tiene estado true
-        if ( !user.estado ) {
+        if ( !user.state ) {
             return res.status(401).json({
                 msg: 'Token no válido - usuario con estado: false'
             })
         }
         
-        
         req.user = user;
         next();
 
     } catch (error) {
-
         console.log(error);
         res.status(401).json({
             msg: 'Token no válido'
@@ -46,9 +44,6 @@ const validarJWT = async( req = request, res = response, next ) => {
     }
 
 }
-
-
-
 
 module.exports = {
     validarJWT

@@ -6,7 +6,7 @@
             "cache": false
         },
         "dev": {
-            "persistent": true,
+            "persistent": false,
             "cache": false
         }
     }

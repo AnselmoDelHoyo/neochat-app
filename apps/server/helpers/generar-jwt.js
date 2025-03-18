@@ -34,7 +34,7 @@ const comprobarJWT = async( token = '') => {
         const user = await User.findById( uid );
 
         if ( user ) {
-            if ( user.estado ) {
+            if ( user.state ) {
                 return user;
             } else {
                 return null;
