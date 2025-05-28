@@ -1,15 +1,76 @@
 class Mensaje {
-    constructor( uid, nombre, mensaje ) {
+    constructor( uid, name, message ) {
         this.uid     = uid;
-        this.nombre  = nombre;
-        this.mensaje = mensaje;
+        this.name  = name;
+        this.message = message;
     }
 }
 
 class ChatMensajes {
 
     constructor() {
-        this.mensajes = [];
+        this.mensajes = [
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+            {
+                uid: "23r98fj0aj2j3rajohqo4tipur",
+                name: "Luis Del Hoyo",
+                message: "Saludos a todos los integrantes del chat"
+            },
+        ];
         this.usuarios = {};
     }
 
@@ -22,9 +83,9 @@ class ChatMensajes {
         return Object.values( this.usuarios ); // [ {}, {}, {}]
     }
 
-    enviarMensaje( uid, nombre, mensaje ) {
+    enviarMensaje( uid, name, message ) {
         this.mensajes.unshift(
-            new Mensaje(uid, nombre, mensaje)
+            new Mensaje(uid, name, message)
         );
     }
 
@@ -38,4 +99,4 @@ class ChatMensajes {
 
 }
 
-module.exports = ChatMensajes
+module.exports = ChatMensajes;

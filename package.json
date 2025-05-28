@@ -21,6 +21,7 @@
   "packageManager": "npm@10.3.0",
   "dependencies": {
     "react-router": "^6.26.0",
-    "react-router-dom": "^6.26.0"
+    "react-router-dom": "^6.26.0",
+    "socket.io-stream": "^0.9.1"
   }
 }

@@ -1,12 +1,17 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { io } from "socket.io-client"
+import InputChat from "./InputChat";
 
 export default function Chat() {
 
-  const url = 'http://localhost:8080/api/auth/';
+  const url = 'http://localhost:8080/api';
 
   let socket = useRef(null);
   let user = useRef(null);
+
+  // Estados del chat
+  let [usersConnected, setUsersConnected] = useState([]);
+  let [messages, setMessages] = useState([]);
 
   useEffect(() => {
 
@@ -22,14 +27,16 @@ export default function Chat() {
             console.log('Sockets online');
         });
 
+        socket.current.on("usuarios-activos", (activeUsers) => {
+          setUsersConnected(activeUsers);
+        })
+        socket.current.on("recibir-mensajes", (messages) => {
+          setMessages(messages);
+        })
+        
         socket.current.on('disconnect', () =>{
             console.log('Sockets offline');
         });
-
-        socket.current.on("usuarios-activos", (activeUsers) => {
-          console.log(activeUsers);
-        })
-
       }
       
       // Validar el token del localstorage
@@ -37,7 +44,7 @@ export default function Chat() {
 
         const token = localStorage.getItem('token') || '';
 
-        const resp = await fetch( url, {
+        const resp = await fetch( url + "/auth", {
             headers: { 'x-token': token }
         });
 
@@ -49,11 +56,33 @@ export default function Chat() {
       }
 
       validarJWT();
-  },[])
+  }, [socket])
 
   return (
     <div>
-      <h1>Welcome to the Chat</h1>
+      <h1>General Chat</h1>
+      <article>
+        <h3>Users</h3>
+        <ul>
+          {
+            (usersConnected.length != 0)
+              ? usersConnected.map((user, index) => <li key={ index }>{ user.name }</li>)
+              : <li>No Hay Usuarios</li>
+          }
+        </ul>
+      </article>
+      <hr/>
+      <article>
+        <h3>Messages</h3>
+        <ul>
+          {
+            (messages.length != 0)
+              ? messages.map((message, index) => <li key={ index }>{message.name} : { message.message }</li>)
+              : <li>No Hay mensajes</li>
+          }
+        </ul>
+      </article>
+      <InputChat socket={ socket.current } user={ user.current } token={ localStorage.getItem("token") } />
     </div>
   )
 }
