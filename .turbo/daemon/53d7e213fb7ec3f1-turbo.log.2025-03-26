@@ -55,3 +55,12 @@
 2025-03-26T22:24:02.061550Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo"), AnchoredSystemPathBuf(".turbo\\cookies\\1.cookie"), AnchoredSystemPathBuf(".turbo\\cookies"), AnchoredSystemPathBuf(".turbo\\cookies\\.turbo-cookie")}
 2025-03-26T22:24:02.061591Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
 2025-03-26T22:24:02.076666Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2025-03-26T22:24:02.461515Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\daemon\\53d7e213fb7ec3f1-turbo.log.2025-03-26")}
+2025-03-26T22:24:02.461538Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-03-26T22:24:03.266621Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\client\\vite.config.js.timestamp-1743027843265-7cae41adf2134.mjs")}
+2025-03-26T22:24:03.266639Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("client"), path: AnchoredSystemPathBuf("apps\\client") }}))
+2025-03-26T22:24:03.396324Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps\\client\\vite.config.js.timestamp-1743027843265-7cae41adf2134.mjs"), AnchoredSystemPathBuf("apps\\client")}
+2025-03-26T22:24:03.396344Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("client"), path: AnchoredSystemPathBuf("apps\\client") }}))
+2025-03-26T22:24:03.396373Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-03-26T22:24:06.762093Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo\\cookies")}
+2025-03-26T22:24:06.762141Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
