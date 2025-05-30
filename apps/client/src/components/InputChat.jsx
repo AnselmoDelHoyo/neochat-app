@@ -36,7 +36,7 @@ export default function InputChat({ socket, user, token }) {
                     message.current.value = "";
                 })
         }}>
-            <input ref={message} type="text" placeholder="Message"/>
+            <input ref={message} type="text" placeholder="Message" maxLength="200"/>
             <button type="submit">Send</button>
         </form>
     )

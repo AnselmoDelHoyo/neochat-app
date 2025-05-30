@@ -15,7 +15,7 @@ const socketController = async( socket = new Socket(), io ) => {
 
     let { messages } = await Chat.findById("67d98e8e58dabf3d42284ce1");
 
-    // Agregar el usuario conectado
+    // Agregar al usuario conectado
     chatMensajes.conectarUsuario( user );
     io.emit('usuarios-activos', chatMensajes.usuariosArr );
     socket.emit('recibir-mensajes', messages);
@@ -30,17 +30,14 @@ const socketController = async( socket = new Socket(), io ) => {
     })
 
     socket.on('enviar-mensaje', async ({ uid, message }) => {
-        
         if ( uid ) {
             // Mensaje privado
             socket.to( uid ).emit( 'mensaje-privado', { of: user.name, message });
         } else {
-
             let { messages } = await Chat.findById("67d98e8e58dabf3d42284ce1");
 
             io.emit('recibir-mensajes', messages );
         }
-
     })
 }
 

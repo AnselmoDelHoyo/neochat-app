@@ -17,6 +17,8 @@ const UserSchema = Schema({
     },
     img: {
         type: String,
+        required: true,
+        default: null,
     },
     role: {
         type: String,
@@ -33,8 +35,6 @@ const UserSchema = Schema({
         default: false
     },
 });
-
-
 
 UserSchema.methods.toJSON = function() {
     const { __v, password, _id, ...user  } = this.toObject();

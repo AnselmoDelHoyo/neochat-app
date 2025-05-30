@@ -60,13 +60,22 @@ export default function Chat() {
 
   return (
     <div>
-      <h1>General Chat</h1>
+      <h1>Chat</h1>
       <article>
         <h3>Users</h3>
         <ul>
           {
             (usersConnected.length != 0)
-              ? usersConnected.map((user, index) => <li key={ index }>{ user.name }</li>)
+              ? usersConnected.map((user, index) => {
+                return (
+                  <li key={ index }>
+                    <div>
+                      <img src={ user.img ? `${ user.img }` : "./no-image.avif"} />
+                    </div>
+                    <span>{ user.name }</span>
+                  </li>
+                )
+              })
               : <li>No Hay Usuarios</li>
           }
         </ul>
