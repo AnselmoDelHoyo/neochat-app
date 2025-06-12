@@ -11,7 +11,13 @@ class Server {
         this.app  = express();
         this.port = process.env.PORT;
         this.server = createServer( this.app );
-        this.io     = require('socket.io')(this.server)
+        this.io     = require('socket.io')(this.server, {
+            cors: {
+                origin: "http://localhost:5173",
+                methods: ["GET", "POST"],
+                credentials: true
+            }
+        });
 
         this.paths = {
             auth:       '/api/auth',
@@ -43,7 +49,11 @@ class Server {
 
     middlewares() {
         // CORS
-        this.app.use( cors() );
+        this.app.use( cors({
+            origin: "http://localhost:5173",
+            methods: ["GET", "POST"],
+            credentials: true
+        }) );
 
         // Lectura y parseo del body
         this.app.use( express.json() );

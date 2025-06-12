@@ -23,7 +23,7 @@ export default function InputChat({ socket, user, token }) {
                 message: sendedMessage
             }
 
-            await fetch("http://localhost:8080/api/chat/67d98e8e58dabf3d42284ce1", {
+            await fetch(`${import.meta.env.VITE_API_URL}/api/chat/67d98e8e58dabf3d42284ce1`, {
                 method: "PATCH",
                 body: JSON.stringify(body),
                 headers: {

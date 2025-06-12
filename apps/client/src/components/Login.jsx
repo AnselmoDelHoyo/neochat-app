@@ -18,7 +18,7 @@ export default function Login() {
         };
 
         let response = await fetch(
-            "http://localhost:8080/api/auth/login",
+            `${import.meta.env.VITE_API_URL}/api/auth/login`,
             {
                 method: "POST",
                 headers: {
@@ -43,24 +43,26 @@ export default function Login() {
                     <h1 className="title-form">Login</h1>
                 </div>
                 <div className="login-form__input">
-                    <label className="label-form">Email</label>
+                    <label className="label-form" htmlFor="email">Email</label>
                     <input
+                        id="email"
                         className="input-form"
                         type="email"
-                        placeholder="test1@gmail.com"
+                        placeholder="user@mail.com"
                         ref={userEmail}
                     />
                 </div>
                 <div className="login-form__input">
-                    <label className="label-form">Password</label>
+                    <label className="label-form" htmlFor="password">Password</label>
                     <input 
+                        id="password"
                         className="input-form"
                         type="password"
                         placeholder="•••••••"
                         ref={userPassword}
                     />
                 </div>
-                <button>Sign In</button>
+                <button className="login-form__button">Sign In</button>
             </form>
         </main>
     );

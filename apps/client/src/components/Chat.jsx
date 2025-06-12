@@ -4,7 +4,7 @@ import InputChat from "./InputChat";
 
 export default function Chat() {
 
-  const url = 'http://localhost:8080/api';
+  const url = `${ import.meta.env.VITE_API_URL }/api`;
 
   let socket = useRef(null);
   let user = useRef(null);
@@ -17,7 +17,7 @@ export default function Chat() {
 
       // Conección de Sockets
       const conectarSocket = async() => {
-        socket.current = io({
+        socket.current = io(`${import.meta.env.VITE_API_URL}`, {
             'extraHeaders': {
                 'x-token': localStorage.getItem('token')
             }
@@ -35,7 +35,7 @@ export default function Chat() {
         })
         
         socket.current.on('disconnect', () =>{
-            console.log('Sockets offline');
+          console.log('Sockets offline');
         });
       }
       
@@ -56,12 +56,12 @@ export default function Chat() {
       }
 
       validarJWT();
-  }, [socket])
+  }, [socket, url])
 
   return (
-    <div>
-      <h1>Chat</h1>
-      <article>
+    <div id="chat">
+      <h1 className="chat-title">General Chat</h1>
+      <article className="chat-users">
         <h3>Users</h3>
         <ul>
           {
@@ -81,7 +81,7 @@ export default function Chat() {
         </ul>
       </article>
       <hr/>
-      <article>
+      <article className="chat-messages">
         <h3>Messages</h3>
         <ul>
           {

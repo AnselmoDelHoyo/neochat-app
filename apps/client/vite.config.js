@@ -8,4 +8,12 @@ export default defineConfig({
     emptyOutDir: true,
     outDir: "../server/public",
   },
+  server: {
+    proxy: {
+      "/socket.io": {
+        target: "http://locahost:8080",
+        ws: true
+      }
+    }
+  }
 })

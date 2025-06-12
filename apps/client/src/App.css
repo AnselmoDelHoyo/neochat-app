@@ -44,4 +44,12 @@ button:hover {
 input {
     padding: 12px 10px;
     border: none;
+    outline: none;
+    border-radius: var(--b-radius);
+    background: var(--shadow-ex);
+    box-shadow: var(--shadow-in);
+}
+
+input::placeholder {
+    opacity: 0.5;
 }

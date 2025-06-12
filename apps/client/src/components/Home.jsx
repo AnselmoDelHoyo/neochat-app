@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <main id='home'>
           <div className='home__text'>
-            <p>This is neochat, a web chat application with an epic design.</p>
+            <p>This is neochat, a web chat application <br/>with an epic design.</p>
           </div>
           <h1 className='home__title'><span className='title__branch'>Neo</span>chat</h1>
           <section className='home__buttons'>

@@ -9,7 +9,10 @@ const socketController = async( socket = new Socket(), io ) => {
 
     const user = await comprobarJWT(socket.handshake.headers['x-token']);
 
+    console.log(user)
+
     if ( !user ) {
+        console.log("Usuario desconectado");
         return socket.disconnect();
     }
 
@@ -19,6 +22,7 @@ const socketController = async( socket = new Socket(), io ) => {
     chatMensajes.conectarUsuario( user );
     io.emit('usuarios-activos', chatMensajes.usuariosArr );
     socket.emit('recibir-mensajes', messages);
+    console.log(messages);
 
     // Conectarlo a una sala especial
     socket.join( user.id ); // global, socket.id, usuario.id

@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run build --workspace=client && turbo run dev",
-    "build": "turbo run build"
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "start": "turbo run start"
   },
   "keywords": [],
   "author": "",
