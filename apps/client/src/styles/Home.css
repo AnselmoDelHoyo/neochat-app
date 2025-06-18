@@ -1,10 +1,6 @@
 
 #home {
-    margin: 0 auto;
-    padding: 10vh 4vw;
-    min-height: 100vh;
-    max-width: 1080px;
-
+    padding: 5vh 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -12,14 +8,15 @@
     font-size: 1.4rem;
 
     .home__text {
-        max-width: 65%;
+        max-width: 700px;
         line-height: 1.5;
         align-self: flex-start;
     }
     
     .home__title {
+        max-width: 100%;
         text-transform: uppercase;
-        font-size: 6rem;
+        font-size: calc(2.5rem + 5vw) ;
         font-weight: 200;
         letter-spacing: 2px;
 

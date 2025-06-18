@@ -20,6 +20,8 @@
 
         .login-form__title {
             text-transform: uppercase;
+            font-weight: 200;
+            letter-spacing: 2px;
         }
 
         .login-form__input {

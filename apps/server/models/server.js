@@ -14,7 +14,7 @@ class Server {
         this.io     = require('socket.io')(this.server, {
             cors: {
                 origin: "http://localhost:5173",
-                methods: ["GET", "POST"],
+                methods: ["GET", "POST", 'PATCH', "PUT", "DELETE"],
                 credentials: true
             }
         });
@@ -51,7 +51,7 @@ class Server {
         // CORS
         this.app.use( cors({
             origin: "http://localhost:5173",
-            methods: ["GET", "POST"],
+            methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
             credentials: true
         }) );
 

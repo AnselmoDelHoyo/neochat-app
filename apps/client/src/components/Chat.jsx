@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { io } from "socket.io-client"
+import { io } from "socket.io-client";
 import InputChat from "./InputChat";
+import "../styles/Chat.css";
 
 export default function Chat() {
 
@@ -8,6 +9,8 @@ export default function Chat() {
 
   let socket = useRef(null);
   let user = useRef(null);
+
+  const bottomRef = useRef(null);
 
   // Estados del chat
   let [usersConnected, setUsersConnected] = useState([]);
@@ -58,8 +61,12 @@ export default function Chat() {
       validarJWT();
   }, [socket, url])
 
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages])
+
   return (
-    <div id="chat">
+    <main id="chat">
       <h1 className="chat-title">General Chat</h1>
       <article className="chat-users">
         <h3>Users</h3>
@@ -81,17 +88,27 @@ export default function Chat() {
         </ul>
       </article>
       <hr/>
-      <article className="chat-messages">
-        <h3>Messages</h3>
-        <ul>
+      <article className="chat-messages" ref={bottomRef}>
+        <ul className="messages-box">
           {
             (messages.length != 0)
-              ? messages.map((message, index) => <li key={ index }>{message.name} : { message.message }</li>)
+              ? messages.map((message, index) => {
+                return (
+                  <li key={ index }>
+                    <div className="message-name">
+                      {message.name}
+                    </div>
+                    <div className="message-text">
+                      { message.message }
+                    </div>
+                  </li>
+                )
+              })
               : <li>No Hay mensajes</li>
           }
         </ul>
       </article>
       <InputChat socket={ socket.current } user={ user.current } token={ localStorage.getItem("token") } />
-    </div>
+    </main>
   )
 }

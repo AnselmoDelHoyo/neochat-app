@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import PropTypes from 'prop-types'
+import "../styles/InputChat.css";
 
 InputChat.propTypes = {
     socket: PropTypes.object,
@@ -12,7 +13,7 @@ export default function InputChat({ socket, user, token }) {
     let message = useRef(null);
 
     return (
-        <form onSubmit={async (e) => {
+        <form id="input-chat" onSubmit={async (e) => {
             e.preventDefault();
 
             let sendedMessage = message.current.value;

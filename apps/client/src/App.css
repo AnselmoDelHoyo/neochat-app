@@ -12,17 +12,28 @@
 
     --b-radius: 6px;
 
-    --shadow-ex:   -6px -6px 10px rgb(200, 200, 200,1),
-                    6px 6px 10px rgba(0, 0, 0, 0.2);
-    --shadow-in:    inset -6px -6px 10px rgba(200, 200, 200,0.5),
-                    inset 6px 6px 10px rgba(0,0,0,0.1);
+    --shadow-ex:   -4px -4px 10px rgb(200, 200, 200,1),
+                    4px 4px 10px rgba(0, 0, 0, 0.2);
+    --shadow-in:    inset -4px -4px 10px rgba(200, 200, 200,0.7),
+                    inset 4px 4px 10px rgba(0,0,0,0.1);
 }
 
 body {
     background-color: var(--c-main);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 200;
 }
 
 /* ------ Elements ------ */
+
+img {
+    max-width: 100%;
+}
+
+main {
+    width: auto;
+    min-height: 100vh;
+}
 
 section {
     font-family: "Montserrat", sans-serif;
@@ -52,4 +63,8 @@ input {
 
 input::placeholder {
     opacity: 0.5;
+}
+
+ul li {
+    list-style: none;
 }
