@@ -7,23 +7,28 @@ import "./styles/normalize.css";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import NotFound from "./pages/NotFound.jsx";
+import Home from "./components/Home.jsx";
+import Chats from "./components/Chats.jsx";
 
 const router = createBrowserRouter([
   {
     path: "*",
-    element: <NotFound />,
+    Component: <NotFound />,
   },
   {
     path: "/",
-    element: <App />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/chat",
-    element: <Chat />,
+    Component: <App />,
+    children: [
+      { index: true, Component: Home },
+      { path: "login", Component: Login },
+      {
+        path: "chats",
+        Component: Chats,
+        children: [
+          { path: ":id", Component: Chat }
+        ]
+      }
+    ]
   }
 ]);
 
