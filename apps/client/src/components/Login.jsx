@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import { useRef } from "react";
 
@@ -32,7 +32,7 @@ export default function Login() {
         
         if (token) {
             localStorage.setItem("token", token);
-            navigate("/chat");
+            navigate("/chats");
         }
     }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+// import App from "./App.jsx";
 import Login from "./components/Login.jsx";
 import Chat from "./components/Chat.jsx";
 import "./styles/normalize.css";
@@ -13,11 +13,10 @@ import Chats from "./components/Chats.jsx";
 const router = createBrowserRouter([
   {
     path: "*",
-    Component: <NotFound />,
+    Component: NotFound,
   },
   {
     path: "/",
-    Component: <App />,
     children: [
       { index: true, Component: Home },
       { path: "login", Component: Login },
