@@ -26,6 +26,14 @@ const chatGet = async(req = request, res = response) => {
     });
 }
 
+const chatGetAll = async(req = request, res = response) => {
+    let chats = await Chat.find();
+
+    res.json({
+        chats
+    })
+}
+
 const chatPatch = async(req, res = response) => {
 
     const { id } = req.params;
@@ -44,5 +52,6 @@ const chatPatch = async(req, res = response) => {
 module.exports = {
     chatPost,
     chatGet,
+    chatGetAll,
     chatPatch,
 }

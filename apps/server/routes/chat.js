@@ -2,7 +2,7 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 
-const { chatPost, chatGet, chatPatch } = require('../controllers/chat');
+const { chatPost, chatGet, chatGetAll, chatPatch } = require('../controllers/chat');
 const { validarCampos } = require('../middlewares');
 
 const router = Router();
@@ -13,6 +13,8 @@ router.post('/', [
 ], chatPost);
 
 router.get('/:id', chatGet);
+
+router.get("/", chatGetAll);
 
 router.patch('/:id', chatPatch);
 
