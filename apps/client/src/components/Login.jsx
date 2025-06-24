@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import { useRef } from "react";
+import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
 
     const userEmail = useRef();
     const userPassword = useRef();
+    const { login } = useAuth();
 
     let navigate = useNavigate();
 
@@ -32,6 +34,7 @@ export default function Login() {
         
         if (token) {
             localStorage.setItem("token", token);
+            login(token)
             navigate("/chats");
         }
     }
